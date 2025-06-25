@@ -29,9 +29,7 @@ body,
   padding: 2rem 1rem;
 }
 
-/* =========================
-   TYPOGRAPHY
-============================ */
+
 h1 {
   text-align: center;
   text-transform: uppercase;
@@ -56,9 +54,7 @@ h1 {
   }
 }
 
-/* =========================
-   TABS
-============================ */
+
 .tabContainer {
   width: 90%;
   max-width: 550px;
@@ -92,9 +88,7 @@ h1 {
   color: #fff;
 }
 
-/* =========================
-   CONTAINERS
-============================ */
+
 .container {
   margin: 3rem 0;
 }
