@@ -1,0 +1,318 @@
+/* =========================
+   GLOBAL RESET & BASE STYLES
+============================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+:root {
+  --color-dark-primary: #0f2027;
+  --color-dark-secondary: #203a43;
+  --color-accent: #2c5364;
+  --color-light-primary: #dbe2ef;
+  --color-light-secondary: #f9f7f7;
+  --color-button-hover: #1b4d66;
+  --radius: 10px;
+  --transition: 0.3s ease-in-out;
+}
+
+body,
+.wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, var(--color-dark-primary), var(--color-dark-secondary), var(--color-accent));
+  color: var(--color-light-secondary);
+  padding: 2rem 1rem;
+}
+
+/* =========================
+   TYPOGRAPHY
+============================ */
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 2rem 0;
+}
+
+.skypulse {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  letter-spacing: 0.1rem;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TABS
+============================ */
+.tabContainer {
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+}
+
+.tab {
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #e0e0e0;
+  transition: var(--transition);
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab.currentTab {
+  background-color: rgba(219, 226, 239, 0.2);
+  color: #fff;
+}
+
+/* =========================
+   CONTAINERS
+============================ */
+.container {
+  margin: 3rem 0;
+}
+
+.subContainer {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.btn {
+  all: unset;
+  padding: 10px 30px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  background-color: var(--color-accent);
+  color: white;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--color-button-hover);
+}
+
+/* =========================
+   FORM
+============================ */
+.formContainer {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto 2rem;
+}
+
+.formContainer.active {
+  display: flex;
+}
+
+.formContainer input {
+  all: unset;
+  flex-grow: 1;
+  height: 40px;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: white;
+}
+
+.formContainer input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.formContainer input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.formContainer .btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   LOCATION + LOADING
+============================ */
+.grantLocationContainer,
+.loadingContainer,
+.userInfoContainer,
+.errorContainer {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grantLocationContainer.active,
+.loadingContainer.active,
+.userInfoContainer.active,
+.errorContainer.active {
+  display: flex;
+}
+
+.grantLocationContainer img,
+.errorContainer img {
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+  border-radius: var(--radius);
+}
+
+.grantLocationContainer p:first-of-type {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.grantLocationContainer p:last-of-type {
+  font-size: 0.85rem;
+  font-weight: 300;
+  opacity: 0.8;
+  max-width: 320px;
+}
+
+.loadingContainer p {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* =========================
+   USER INFO
+============================ */
+.userInfoContainer p {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.name img,
+.userInfoContainer img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.userInfoContainer img[data-weatherIcon] {
+  width: 75px;
+  height: 75px;
+  margin: 1rem 0;
+}
+
+.userInfoContainer p[data-temp] {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.userInfoContainer p[data-weatherDesc] {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  opacity: 0.9;
+}
+
+/* =========================
+   WEATHER PARAMETERS
+============================ */
+.parameterContainer {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.parameter {
+  flex: 1 1 30%;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #ffffff;
+}
+
+.parameter img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.parameter p {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.parameterValue {
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+/* =========================
+   ERROR
+============================ */
+.errorContainer p {
+  font-size: 1rem;
+  color: #f8d7da;
+  margin-top: 1rem;
+}
+
+.errorContainer img {
+  object-fit: cover;
+  border-radius: var(--radius);
+}

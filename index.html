@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyPulse | Real-time Weather</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- App Title -->
+      <h1 class="skypulse">SkyPulse</h1>
+
+      <!-- Tab Navigation -->
+      <div class="tabContainer">
+        <p class="tab currentTab" data-userWeather>Your Weather</p>
+        <p class="tab" data-searchWeather>Search Weather</p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="container">
+        <!-- Search City -->
+        <form class="formContainer" data-searchForm>
+          <input
+            type="text"
+            placeholder="Search for a city..."
+            data-searchInput
+            aria-label="Search City"
+          />
+          <button class="btn" type="submit" aria-label="Search Button">
+            <img
+              src="./Images/search.png"
+              width="20"
+              height="20"
+              loading="lazy"
+              alt="Search"
+            />
+          </button>
+        </form>
+
+        <!-- Grant Access Section -->
+        <div class="grantLocationContainer subContainer">
+          <img
+            src="./Images/location.png"
+            width="80"
+            height="80"
+            loading="lazy"
+            alt="Location Icon"
+          />
+          <p>Grant Location Access</p>
+          <p>Allow access to get weather information</p>
+          <button class="btn" data-grantAccess>Grant Access</button>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loadingContainer subContainer">
+          <img src="./Images/loading.gif" width="150" height="150" alt="Loading" />
+          <p>Loading...</p>
+        </div>
+
+        <!-- Weather Information -->
+        <div class="userInfoContainer subContainer">
+          <div class="name">
+            <p data-cityName class="cityName"></p>
+            <img data-countryFlag alt="Country Flag" />
+          </div>
+
+          <p data-weatherDesc class="weatherDesc"></p>
+          <img data-weatherIcon class="weatherIcon" alt="Weather Icon" />
+          <p data-temp class="temperature"></p>
+
+          <!-- Weather Parameters -->
+          <div class="parameterContainer">
+            <div class="parameter">
+              <img src="./Images/wind.png" alt="Wind Icon" />
+              <p>Wind Speed</p>
+              <p class="parameterValue" data-windspeed></p>
+            </div>
+
+            <div class="parameter">
+              <img src="./Images/humidity.png" alt="Humidity Icon" />
+              <p>Humidity</p>
+              <p class="parameterValue" data-humidity></p>
+            </div>
+
+            <div class="parameter">
+              <img src="./Images/cloud.png" alt="Cloud Icon" />
+              <p>Clouds</p>
+              <p class="parameterValue" data-clouds></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Display -->
+        <div class="errorContainer subContainer">
+          <img src="./Images/not-found.png" data-errorImg alt="Not Found" />
+          <p data-errorText></p>
+          <button class="btn" data-errorButton>Retry Now</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
