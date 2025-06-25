@@ -35,6 +35,4 @@
    - Wind speed
    - Cloud coverage
 
----
-
 
