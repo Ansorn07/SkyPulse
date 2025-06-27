@@ -1,4 +1,4 @@
-# 🌤️ SkyPulse – Live Weather Tracker
+
 
 **SkyPulse** is a modern, responsive weather web application built with HTML, CSS, and JavaScript. It uses location-based and city-based search to display real-time weather data in a visually appealing interface.
 ---
